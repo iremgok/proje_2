@@ -42,17 +42,19 @@ try:
 
     uzmanlik_sayisi = {}
     for uzmanlik in get_personeller()['Uzmanlik']:
-        if uzmanlik != None:
+        if uzmanlik is not None:
             if uzmanlik in uzmanlik_sayisi:
                 uzmanlik_sayisi[uzmanlik] += 1
             else:
                 uzmanlik_sayisi[uzmanlik] = 1
     for uzmanlik, sayi in uzmanlik_sayisi.items():
-        print(f"{uzmanlik}: {sayi}")
+        if uzmanlik != 0:  
+            print(f"{uzmanlik}: {sayi}")
+
 
     toplam_doktor = 0
     for uzmanlik in get_personeller()['Uzmanlik']:
-        if uzmanlik != None:
+        if uzmanlik is not None and uzmanlik != 0:
             toplam_doktor += 1
     print("Toplam Doktor Sayisi: ", toplam_doktor)
     print("\n")
