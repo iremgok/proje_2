@@ -1,4 +1,5 @@
 class Personel:
+    # initializer method ile değişkenler tanımlandı
     def __init__(self, Personel_no, isim, soyisim, Departman, Maas):
         self.__Personel_no = Personel_no
         self.__isim = isim
@@ -6,6 +7,7 @@ class Personel:
         self.__Departman = Departman
         self.__Maas = Maas
 
+    #Personel sınıfı için accessor methodu
     def get_personel_no(self):
         return self.__Personel_no
 
@@ -21,7 +23,8 @@ class Personel:
     def get_maas(self):
         return self.__Maas
     
-
+    
+    #Personel sınıfı için mutator methodu
     def set_personel_no(self, yeni_personel_no):
         self.__Personel_no = yeni_personel_no
 
@@ -37,9 +40,12 @@ class Personel:
     def set_maas(self, yeni_maas):
         self.__Maas = yeni_maas
 
+
+    # Str method ile ekrana yazdırır
     def __str__(self):
         return f"Personel: {self.get_isim()} {self.get_soyisim()}, Personel no: {self.get_personel_no()}, Departman: {self.get_departman()}, Maas: {self.get_maas()}"
 
 
+# Personel nesneleri oluşturma
 personel1 = Personel(15621, "Hatice", "Gungor", "Temizlik Gorevlisi", 5000)
 personel2 = Personel(12389, "Burak", "Yilmaz", "Guvenlik Gorevlisi", 8000)

@@ -4,8 +4,10 @@ from Hemsire import hemsire1, hemsire2, hemsire3
 from Hasta import hasta1, hasta2, hasta3
 from Personel import personel1, personel2
 
-try:
 
+# try-except bloğu
+try:
+    # Personel bilgilerini DataFrame'e dönüştürme
     personeller = pd.DataFrame({
         "Ad": [personel1.get_isim(), personel2.get_isim(), doktor1.get_isim(), doktor2.get_isim(), doktor3.get_isim(), hemsire1.get_isim(), hemsire2.get_isim(), hemsire3.get_isim(), hasta1.get_isim(), hasta2.get_isim(), hasta3.get_isim()],
         "Soyad": [personel1.get_soyisim(), personel2.get_soyisim(), doktor1.get_soyisim(), doktor2.get_soyisim(), doktor3.get_soyisim(), hemsire1.get_soyisim(), hemsire2.get_soyisim(), hemsire3.get_soyisim(), hasta1.get_soyisim(), hasta2.get_soyisim(), hasta3.get_soyisim()],
@@ -22,61 +24,71 @@ try:
         "Hastalik": [None, None, None, None, None, None, None, None, hasta1.get_hastalik(), hasta2.get_hastalik(), hasta3.get_hastalik()],
         "Tedavi_suresi": [None, None, None, None, None, None, None, None, hasta1.get_tedavi(), hasta2.get_tedavi(), hasta3.get_tedavi()]
     })
+    # Boş olan alanları 0 ile doldur
     personeller.fillna(0, inplace=True)
 
+    # Personel bilgilerini döndüren fonksiyon
     def get_personeller():
         global personeller
         return personeller
     
+    
+    # Alfabetik göre sıralama
     siralanmis_isimler = get_personeller().sort_values(by='Ad')
     print(siralanmis_isimler)
     print("\n")
 
+
+    # 5 yıl ve daha fazla süredir çalışan doktor sayısı
     doktor_sayisi = 0
     for deneyim_yili in get_personeller()['Deneyim_yili']:
-        deneyim_yili = int(deneyim_yili)
-        if deneyim_yili >= 5:
+        if deneyim_yili != 0 and int(deneyim_yili) >= 5:
             doktor_sayisi += 1
-    print("5 Yıl ve Daha Fazla Calisan Doktor Sayisi: ", doktor_sayisi)
+    print("5 Yıl ve Daha Fazla Süredir Çalışan Doktor Sayısı: ", doktor_sayisi)
     print("\n")
 
+
+    # Uzmanlık sayıları
     uzmanlik_sayisi = {}
     for uzmanlik in get_personeller()['Uzmanlik']:
-        if uzmanlik is not None:
+        if uzmanlik != 0:
             if uzmanlik in uzmanlik_sayisi:
                 uzmanlik_sayisi[uzmanlik] += 1
             else:
                 uzmanlik_sayisi[uzmanlik] = 1
     for uzmanlik, sayi in uzmanlik_sayisi.items():
-        if uzmanlik != 0:  
-            print(f"{uzmanlik}: {sayi}")
+        print(f"{uzmanlik}: {sayi}")
 
 
-    toplam_doktor = 0
-    for uzmanlik in get_personeller()['Uzmanlik']:
-        if uzmanlik is not None and uzmanlik != 0:
-            toplam_doktor += 1
-    print("Toplam Doktor Sayisi: ", toplam_doktor)
+    # Toplam doktor sayısı
+    toplam_doktor = sum(1 for uzmanlik in get_personeller()['Uzmanlik'] if uzmanlik != 0)
+    print("Toplam Doktor Sayısı: ", toplam_doktor)
     print("\n")
 
+
+    # Maaşı 7000'den fazla olan personeller
+    print("Maaşı 7000'den Fazla Olan Personeller: ")
     for idx, row in get_personeller().iterrows():
-        maas = int(row['Maas'])
-        if maas > 7000:
-            print("Maasi 7000'den Fazla Olan Personeller: ")
+        if int(row['Maas']) > 7000:     # row, her bir satırı temsil eder ve bu satırdaki verilere sütun isimleri ile erişilebilir
             print(row)
             print("\n")
 
+
+    # 1990 yılından sonra doğan hastalar
+    print("1990 Yılından Sonra Doğan Hastalar: ")
     for idx, row in get_personeller().iterrows():
-        tarih = int(row['Dogum_tarihi'])
-        if tarih > 1990:
-            print("1990 Yilindan Sonra Dogan Hastalar: ")
+        if row['Dogum_tarihi'] != 0 and int(row['Dogum_tarihi']) > 1990:
             print(row)
             print("\n")
 
+
+    # Belli sütunlara yeni DataFrame
     yeni_df = get_personeller()[["Ad", "Soyad", "Departman", "Maas", "Uzmanlik", "Deneyim_yili", "Hastalik", "Tedavi_suresi"]]
     print(yeni_df)
     print("\n")
 
+
+    # Tüm nesneleri ekrana yazdırma
     print(str(doktor1))
     print(str(doktor2))
     print(str(doktor3))
@@ -88,6 +100,7 @@ try:
     print(str(hasta3))
     print(str(personel1))
     print(str(personel2))
+
 
 except ValueError:
     print("Hata!")

@@ -1,4 +1,5 @@
 class Hemsire:
+    # initializer method ile değişkenler tanımlandı
     def __init__(self, isim, soyisim, Calisma_saati, Sertifika, Hastane, Maas):
         self.__isim = isim
         self.__soyisim = soyisim
@@ -7,6 +8,7 @@ class Hemsire:
         self.__Hastane = Hastane
         self.__Maas = Maas
 
+    #Hemsire sınıfı için accessor methodu
     def get_isim(self):
         return self.__isim
     
@@ -26,6 +28,7 @@ class Hemsire:
         return self.__Maas
     
     
+    #Hemsire sınıfı için mutator methodu
     def set_isim(self, yeni_isim):
         self.__isim = yeni_isim
     
@@ -44,19 +47,23 @@ class Hemsire:
     def set_maas(self, yeni_maas):
         self.__Maas = yeni_maas
 
+    # Maaş arttırma metodu, hemşirelerin çalışma saatinin 10 katını maaşa ekler
     def maas_arttir(self):
         yeni_maas = self.get_maas() + self.get_calisma_saati() * 10
         self.set_maas(yeni_maas)
         return self.get_maas()
 
+    # Str method ile ekrana yazdırır
     def __str__(self):
         return f"Hemsire: {self.get_isim()} {self.get_soyisim()}, Calisma saati: {self.get_calisma_saati()}, Sertifika: {self.get_sertifika()}, Hastane: {self.get_hastane()}, Maas: {self.get_maas()}"
 
 
+# Hemsire nesneleri oluşturma
 hemsire1 = Hemsire("Zeynep", "Sahin", 13, "Yasli Bakim", "Ozel Hastane", 6500)
 hemsire2 = Hemsire("Efe", "Baransel", 11, "Hastane Sekreteri", "Ozel Hastane", 7000)
 hemsire3 = Hemsire("Zehra", "Acıkgoz", 9, "Cocuk Gelisimi", "Sehir Hastanesi", 9000)
 
+# Hemşirelerin maaşlarını arttırma
 hemsire1.set_maas(hemsire1.maas_arttir())
 hemsire2.set_maas(hemsire2.maas_arttir())
 hemsire3.set_maas(hemsire3.maas_arttir())
