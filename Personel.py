@@ -6,7 +6,6 @@ class Personel:
         self.__Departman = Departman
         self.__Maas = Maas
 
-
     def get_personel_no(self):
         return self.__Personel_no
 
@@ -21,7 +20,7 @@ class Personel:
 
     def get_maas(self):
         return self.__Maas
-
+    
 
     def set_personel_no(self, yeni_personel_no):
         self.__Personel_no = yeni_personel_no
@@ -38,9 +37,9 @@ class Personel:
     def set_maas(self, yeni_maas):
         self.__Maas = yeni_maas
 
-
     def __str__(self):
-        return f"Personel: {self.__isim} {self.__soyisim}, Personel no: {self.__Personel_no}, Departman: {self.__Departman}, Maas: {self.__Maas}"
-    
-personel1 = Personel(15621, "Hatice", "Gungor", "Temizlik", 5000)
-personel2 = Personel(12389, "Burak", "Yilmaz", "Guvenlik", 8000)
+        return f"Personel: {self.get_isim()} {self.get_soyisim()}, Personel no: {self.get_personel_no()}, Departman: {self.get_departman()}, Maas: {self.get_maas()}"
+
+
+personel1 = Personel(15621, "Hatice", "Gungor", "Temizlik Gorevlisi", 5000)
+personel2 = Personel(12389, "Burak", "Yilmaz", "Guvenlik Gorevlisi", 8000)
