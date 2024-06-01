@@ -47,18 +47,18 @@ class Doktor:
 
 
     def maas_arttir(self):
-        if self.__Deneyim_yili >= 5:
-            self.__Maas += 2000
-            return self.__Maas
-        else:
-            return self.__Maas
+        if self.get_deneyim_yili() >= 5:
+            yeni_maas = self.get_maas() + 2000
+            self.set_maas(yeni_maas)
+        return self.get_maas()
 
     def __str__(self):
-        return f"Doktor: {self.__isim} {self.__soyisim}, Uzmanlik: {self.__Uzmanlik}, Deneyim Yili: {self.__Deneyim_yili}, Hastane: {self.__Hastane}, Maas: {self.__Maas}"
+        return f"Doktor: {self.get_isim()} {self.get_soyisim()}, Uzmanlik: {self.get_uzmanlik()}, Deneyim Yili: {self.get_deneyim_yili()}, Hastane: {self.get_hastane()}, Maas: {self.get_maas()}"
+
 
 doktor1 = Doktor("irem", "Gok", "Kardiyoloji", 3, "Sehir Hastanesi", 25000)
 doktor2 = Doktor("ikra", "Saygun", "Genel Cerrahi", 5, "Ozel Hastane", 14000)
-doktor3 = Doktor("Ali", "Demir", "Ortopedi", 7, "Sehir Hastanesi", 18000)
+doktor3 = Doktor("Ali", "Demir", "Ortopedi", 7, "Sehir Hastanesi", 20000)
 
 doktor1.set_maas(doktor1.maas_arttir())
 doktor2.set_maas(doktor2.maas_arttir())
