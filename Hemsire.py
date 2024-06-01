@@ -7,7 +7,6 @@ class Hemsire:
         self.__Hastane = Hastane
         self.__Maas = Maas
 
-
     def get_isim(self):
         return self.__isim
     
@@ -45,18 +44,18 @@ class Hemsire:
     def set_maas(self, yeni_maas):
         self.__Maas = yeni_maas
 
-
     def maas_arttir(self):
-        self.__Maas = self.__Maas + self.__Calisma_saati * 10
-        return self.__Maas
+        yeni_maas = self.get_maas() + self.get_calisma_saati() * 10
+        self.set_maas(yeni_maas)
+        return self.get_maas()
 
     def __str__(self):
-        return f"Hemsire: {self.__isim} {self.__soyisim}, Calisma saati: {self.__Calisma_saati}, Sertifika: {self.__Sertifika}, Hastane: {self.__Hastane}, Maas: {self.__Maas}"
+        return f"Hemsire: {self.get_isim()} {self.get_soyisim()}, Calisma saati: {self.get_calisma_saati()}, Sertifika: {self.get_sertifika()}, Hastane: {self.get_hastane()}, Maas: {self.get_maas()}"
 
-    
+
 hemsire1 = Hemsire("Zeynep", "Sahin", 13, "Yasli Bakim", "Ozel Hastane", 6500)
 hemsire2 = Hemsire("Efe", "Baransel", 11, "Hastane Sekreteri", "Ozel Hastane", 7000)
-hemsire3 = Hemsire("Zehra", "Acıkgoz", 9, "Cocuk Gelisim", "Sehir Hastanesi", 9000)
+hemsire3 = Hemsire("Zehra", "Acıkgoz", 9, "Cocuk Gelisimi", "Sehir Hastanesi", 9000)
 
 hemsire1.set_maas(hemsire1.maas_arttir())
 hemsire2.set_maas(hemsire2.maas_arttir())
