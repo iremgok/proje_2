@@ -7,7 +7,6 @@ class Hasta:
         self.__Hastalik = Hastalik
         self.__Tedavi_suresi = Tedavi_suresi
 
-
     def get_isim(self):
         return self.__isim
 
@@ -45,20 +44,20 @@ class Hasta:
     def set_tedavi(self, yeni_tedavi):
         self.__Tedavi_suresi = yeni_tedavi
 
-
     def tedavi_suresi_hesapla(self):
         en_az_hastalik = 3
-        if self.__Hastalik == 'grip':
+        if self.get_hastalik() == 'grip':
             return en_az_hastalik 
-        elif self.__Hastalik == 'ozel tedavi':
+        elif self.get_hastalik() == 'ozel tedavi':
             return en_az_hastalik + 7
-        elif self.__Hastalik == 'normal tedavi':
+        elif self.get_hastalik() == 'normal tedavi':
             return en_az_hastalik + 2
         else:
             return en_az_hastalik + 3
     
     def __str__(self):
-        return f"Hasta: {self.__isim} {self.__soyisim}, Hasta no: {self.__Hasta_no}, Dogum tarihi: {self.__Dogum_tarihi}, Hastalik: {self.__Hastalik}, Tedavi suresi: {self.__Tedavi_suresi} ay"
+        return f"Hasta: {self.get_isim()} {self.get_soyisim()}, Hasta no: {self.get_hasta_no()}, Dogum tarihi: {self.get_dogum_tarihi()}, Hastalik: {self.get_hastalik()}, Tedavi suresi: {self.get_tedavi()} ay"
+
 
 hasta1 = Hasta("Arda", "Donmez", 12347,  2005, "grip")
 hasta2 = Hasta("Ayse", "Tas", 56412, 1987, "ozel tedavi")
