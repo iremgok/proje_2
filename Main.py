@@ -24,8 +24,8 @@ try:
         "Hastalik": [None, None, None, None, None, None, None, None, hasta1.get_hastalik(), hasta2.get_hastalik(), hasta3.get_hastalik()],
         "Tedavi_suresi": [None, None, None, None, None, None, None, None, hasta1.get_tedavi(), hasta2.get_tedavi(), hasta3.get_tedavi()]
     })
-    # Boş olan alanları 0 ile doldur
-    personeller.fillna(0, inplace=True)
+    personeller.fillna(0, inplace=True)        # Boş olan alanları 0 ile doldur
+
 
     # Personel bilgilerini döndüren fonksiyon
     def get_personeller():
@@ -82,7 +82,7 @@ try:
             print("\n")
 
 
-    # Belli sütunlara yeni DataFrame
+    # Belli sütunlarla yeni DataFrame
     yeni_df = get_personeller()[["Ad", "Soyad", "Departman", "Maas", "Uzmanlik", "Deneyim_yili", "Hastalik", "Tedavi_suresi"]]
     print(yeni_df)
     print("\n")
