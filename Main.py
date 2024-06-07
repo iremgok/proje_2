@@ -5,7 +5,10 @@ from Hasta import hasta1, hasta2, hasta3
 from Personel import personel1, personel2
 
 
+<<<<<<< HEAD
 # try-except bloğu
+=======
+>>>>>>> 0d82bce51ecdb7081d7ef1d63f9bb85867450c35
 try:
     # Personel bilgilerini DataFrame'e dönüştürme
     personeller = pd.DataFrame({
@@ -32,7 +35,10 @@ try:
         global personeller
         return personeller
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> 0d82bce51ecdb7081d7ef1d63f9bb85867450c35
     # Alfabetik göre sıralama
     siralanmis_isimler = get_personeller().sort_values(by='Ad')
     print(siralanmis_isimler)
@@ -69,7 +75,11 @@ try:
     # Maaşı 7000'den fazla olan personeller
     print("Maaşı 7000'den Fazla Olan Personeller: ")
     for idx, row in get_personeller().iterrows():
+<<<<<<< HEAD
         if int(row['Maas']) > 7000:     # row, her bir satırı temsil eder ve bu satırdaki verilere sütun isimleri ile erişilebilir
+=======
+        if int(row['Maas']) > 7000:
+>>>>>>> 0d82bce51ecdb7081d7ef1d63f9bb85867450c35
             print(row)
             print("\n")
 
@@ -82,13 +92,20 @@ try:
             print("\n")
 
 
+<<<<<<< HEAD
     # Belli sütunlara yeni DataFrame
+=======
+    # Yeni DataFrame
+>>>>>>> 0d82bce51ecdb7081d7ef1d63f9bb85867450c35
     yeni_df = get_personeller()[["Ad", "Soyad", "Departman", "Maas", "Uzmanlik", "Deneyim_yili", "Hastalik", "Tedavi_suresi"]]
     print(yeni_df)
     print("\n")
 
 
+<<<<<<< HEAD
     # Tüm nesneleri ekrana yazdırma
+=======
+>>>>>>> 0d82bce51ecdb7081d7ef1d63f9bb85867450c35
     print(str(doktor1))
     print(str(doktor2))
     print(str(doktor3))
