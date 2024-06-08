@@ -65,7 +65,7 @@ doktor1 = Doktor("irem", "Gok", "Kardiyoloji", 3, "Sehir Hastanesi", 25000)
 doktor2 = Doktor("ikra", "Saygun", "Genel Cerrahi", 5, "Ozel Hastane", 14000)
 doktor3 = Doktor("Ali", "Demir", "Ortopedi", 7, "Sehir Hastanesi", 20000)
 
-# Doktorların maaşlarını arttırma
+# Maaş arttır fonksiyonu çağrılır
 doktor1.set_maas(doktor1.maas_arttir())
 doktor2.set_maas(doktor2.maas_arttir())
 doktor3.set_maas(doktor3.maas_arttir())

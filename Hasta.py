@@ -47,6 +47,7 @@ class Hasta:
     def set_tedavi(self, yeni_tedavi):
         self.__Tedavi_suresi = yeni_tedavi
 
+
     # Tedavi çeşidine göre tedavi süresi döndüren method
     def tedavi_suresi_hesapla(self):
         en_az_hastalik = 3
@@ -58,7 +59,7 @@ class Hasta:
             return en_az_hastalik + 2
         else:
             return en_az_hastalik + 3
-    
+  
     # Str method ile ekrana yazdırır
     def __str__(self):
         return f"Hasta: {self.get_isim()} {self.get_soyisim()}, Hasta no: {self.get_hasta_no()}, Dogum tarihi: {self.get_dogum_tarihi()}, Hastalik: {self.get_hastalik()}, Tedavi suresi: {self.get_tedavi()} ay"
@@ -69,6 +70,7 @@ hasta1 = Hasta("Arda", "Donmez", 12347,  2005, "grip")
 hasta2 = Hasta("Ayse", "Tas", 56412, 1987, "ozel tedavi")
 hasta3 = Hasta("Mustafa", "Oztekin", 78913,  2002, "normal tedavi")
 
+# Tedavi süresi hesapla fonksiyonu çağrılır
 hasta1.set_tedavi(hasta1.tedavi_suresi_hesapla())
 hasta2.set_tedavi(hasta2.tedavi_suresi_hesapla())
 hasta3.set_tedavi(hasta3.tedavi_suresi_hesapla())
