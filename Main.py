@@ -28,6 +28,8 @@ try:
     
     
     # Alfabetik göre sıralama
+    print("\n")
+    print("Alfabetik Siraya Gore Dataframe: ")
     siralanmis_isimler = personeller.sort_values(by='Ad')
     print(siralanmis_isimler)
     print("\n")   
@@ -77,6 +79,7 @@ try:
 
 
     # Belli sütunlarla yeni DataFrame
+    print("istenilen Sutunlara Gore Yeni Dataframe: ")
     yeni_df = personeller[["Ad", "Soyad", "Departman", "Maas", "Uzmanlik", "Deneyim_yili", "Hastalik", "Tedavi_suresi"]]
     print(yeni_df)
     print("\n")
