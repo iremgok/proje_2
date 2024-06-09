@@ -69,6 +69,7 @@ hasta1 = Hasta("Arda", "Donmez", 12347,  2005, "grip")
 hasta2 = Hasta("Ayse", "Tas", 56412, 1987, "ozel tedavi")
 hasta3 = Hasta("Mustafa", "Oztekin", 78913,  2002, "normal tedavi")
 
+# Tedavi süresi hesapla fonksiyonu çağrılır
 hasta1.set_tedavi(hasta1.tedavi_suresi_hesapla())
 hasta2.set_tedavi(hasta2.tedavi_suresi_hesapla())
 hasta3.set_tedavi(hasta3.tedavi_suresi_hesapla())
