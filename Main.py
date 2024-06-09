@@ -30,15 +30,15 @@ try:
     # Alfabetik göre sıralama
     siralanmis_isimler = personeller.sort_values(by='Ad')
     print(siralanmis_isimler)
-    print("\n")
+    print("\n")   
 
 
     # 5 yıl ve daha fazla süredir çalışan doktor sayısı
     doktor_sayisi = 0
     for deneyim_yili in personeller['Deneyim_yili']:
-        if deneyim_yili != 0 and int(deneyim_yili) >= 5:
+        if int(deneyim_yili) >= 5:
             doktor_sayisi += 1
-    print("5 Yıl ve Daha Fazla Süredir Çalışan Doktor Sayısı: ", doktor_sayisi)
+    print("5 Yil ve Daha Uzun Suredir Calisan Doktor Sayisi: ", doktor_sayisi)
     print("\n")
 
 
@@ -56,20 +56,20 @@ try:
 
     # Toplam doktor sayısı
     toplam_doktor = sum(1 for uzmanlik in personeller['Uzmanlik'] if uzmanlik != 0)
-    print("Toplam Doktor Sayısı: ", toplam_doktor)
+    print("Toplam Doktor Sayisi: ", toplam_doktor)
     print("\n")
 
 
     # Maaşı 7000'den fazla olan personeller
-    print("Maaşı 7000'den Fazla Olan Personeller: ")
+    print("Maasi 7000'den Fazla Olan Personeller: ")
     for idx, row in personeller.iterrows():
-        if int(row['Maas']) > 7000:     # row, her bir satırı temsil eder ve bu satırdaki verilere sütun isimleri ile erişilebilir
+        if int(row['Maas']) > 7000:     # row, her bir satırı temsil eder ve iterrows ile bu satırları döndürmayi sağlar
             print(row)
             print("\n")
 
 
     # 1990 yılından sonra doğan hastalar
-    print("1990 Yılından Sonra Doğan Hastalar: ")
+    print("1990 Yilindan Sonra Dogan Hastalar: ")
     for idx, row in personeller.iterrows():
         if row['Dogum_tarihi'] != 0 and int(row['Dogum_tarihi']) > 1990:
             print(row)
