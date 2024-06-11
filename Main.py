@@ -22,28 +22,31 @@ try:
         "Hasta_no": [None, None, None, None, None, None, None, None, hasta1.get_hasta_no(), hasta2.get_hasta_no(), hasta3.get_hasta_no()],
         "Dogum_tarihi": [None, None, None, None, None, None, None, None, hasta1.get_dogum_tarihi(), hasta2.get_dogum_tarihi(), hasta3.get_dogum_tarihi()],
         "Hastalik": [None, None, None, None, None, None, None, None, hasta1.get_hastalik(), hasta2.get_hastalik(), hasta3.get_hastalik()],
-        "Tedavi_suresi": [None, None, None, None, None, None, None, None, hasta1.get_tedavi(), hasta2.get_tedavi(), hasta3.get_tedavi()]
+        "Tedavi_suresi": [None, None, None, None, None, None, None, None, hasta1.get_tedavi_suresi(), hasta2.get_tedavi_suresi(), hasta3.get_tedavi_suresi()]
     })
     personeller.fillna(0, inplace=True)     # Boş olan alanları 0 ile doldur
     
     
-    # Alfabetik göre sıralama
-    siralanmis_isimler = personeller.sort_values(by='Ad')
-    print(siralanmis_isimler)
+    # Hastaların isimlerini alfabetik sıraya göre sıralama
     print("\n")
+    print("Hastalarin Alfabetik Siraya Gore Dataframe: ")
+    hastalar = personeller[personeller['Hasta_no'] != 0]
+    siralanmis_hastalar = hastalar.sort_values(by='Ad')
+    print(siralanmis_hastalar)
+    print("\n")   
 
 
     # 5 yıl ve daha fazla süredir çalışan doktor sayısı
     doktor_sayisi = 0
     for deneyim_yili in personeller['Deneyim_yili']:
-        if deneyim_yili != 0 and int(deneyim_yili) >= 5:
+        if int(deneyim_yili) >= 5:
             doktor_sayisi += 1
-    print("5 Yıl ve Daha Fazla Süredir Çalışan Doktor Sayısı: ", doktor_sayisi)
+    print("5 Yil ve Daha Uzun Suredir Calisan Doktor Sayisi: ", doktor_sayisi)
     print("\n")
 
 
     # Uzmanlık sayıları
-    uzmanlik_sayisi = {}
+    uzmanlik_sayisi = {}    # uzmanlık dictionarysi oluşturulur ve uzmanlik değerleri buraya atanır
     for uzmanlik in personeller['Uzmanlik']:
         if uzmanlik != 0:
             if uzmanlik in uzmanlik_sayisi:
@@ -55,21 +58,21 @@ try:
 
 
     # Toplam doktor sayısı
-    toplam_doktor = sum(1 for uzmanlik in personeller['Uzmanlik'] if uzmanlik != 0)
-    print("Toplam Doktor Sayısı: ", toplam_doktor)
+    toplam_doktor = sum(1 for uzmanlik in personeller['Uzmanlik'] if uzmanlik != 0)     # uzmanlıkları 1'e çevirir ve 1'leri toplar
+    print("Toplam Doktor Sayisi: ", toplam_doktor)
     print("\n")
 
 
     # Maaşı 7000'den fazla olan personeller
-    print("Maaşı 7000'den Fazla Olan Personeller: ")
+    print("Maasi 7000'den Fazla Olan Personeller: ")
     for idx, row in personeller.iterrows():
-        if int(row['Maas']) > 7000:     # row, her bir satırı temsil eder ve bu satırdaki verilere sütun isimleri ile erişilebilir
+        if int(row['Maas']) > 7000:     # row, her bir satırı temsil eder ve iterrows ile bu satırları döndürmayi sağlar
             print(row)
             print("\n")
 
 
     # 1990 yılından sonra doğan hastalar
-    print("1990 Yılından Sonra Doğan Hastalar: ")
+    print("1990 Yilindan Sonra Dogan Hastalar: ")
     for idx, row in personeller.iterrows():
         if row['Dogum_tarihi'] != 0 and int(row['Dogum_tarihi']) > 1990:
             print(row)
@@ -77,6 +80,7 @@ try:
 
 
     # Belli sütunlarla yeni DataFrame
+    print("istenilen Sutunlara Gore Yeni Dataframe: ")
     yeni_df = personeller[["Ad", "Soyad", "Departman", "Maas", "Uzmanlik", "Deneyim_yili", "Hastalik", "Tedavi_suresi"]]
     print(yeni_df)
     print("\n")

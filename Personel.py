@@ -1,15 +1,16 @@
 class Personel:
     # initializer method ile değişkenler tanımlandı
-    def __init__(self, Personel_no, isim, soyisim, Departman, Maas):
-        self.__Personel_no = Personel_no
+    def __init__(self, personel_no, isim, soyisim, departman, maas):
+        self.__personel_no = personel_no
         self.__isim = isim
         self.__soyisim = soyisim
-        self.__Departman = Departman
-        self.__Maas = Maas
+        self.__departman = departman
+        self.__maas = maas
 
-    #Personel sınıfı için accessor methodu
+
+    # Personel sınıfı için accessor methodları
     def get_personel_no(self):
-        return self.__Personel_no
+        return self.__personel_no
 
     def get_isim(self):
         return self.__isim
@@ -18,15 +19,15 @@ class Personel:
         return self.__soyisim
 
     def get_departman(self):
-        return self.__Departman
+        return self.__departman
 
     def get_maas(self):
-        return self.__Maas
-    
-    
-    #Personel sınıfı için mutator methodu
+        return self.__maas
+
+
+    # Personel sınıfı için mutator methodları
     def set_personel_no(self, yeni_personel_no):
-        self.__Personel_no = yeni_personel_no
+        self.__personel_no = yeni_personel_no
 
     def set_isim(self, yeni_isim):
         self.__isim = yeni_isim
@@ -35,17 +36,17 @@ class Personel:
         self.__soyisim = yeni_soyisim
 
     def set_departman(self, yeni_departman):
-        self.__Departman = yeni_departman
+        self.__departman = yeni_departman
 
     def set_maas(self, yeni_maas):
-        self.__Maas = yeni_maas
+        self.__maas = yeni_maas
 
 
-    # Str method ile ekrana yazdırır
+    # Str methodu ile ekrana yazdırır
     def __str__(self):
         return f"Personel: {self.get_isim()} {self.get_soyisim()}, Personel no: {self.get_personel_no()}, Departman: {self.get_departman()}, Maas: {self.get_maas()}"
 
 
 # Personel nesneleri oluşturma
-personel1 = Personel(15621, "Hatice", "Gungor", "Temizlik Gorevlisi", 5000)
-personel2 = Personel(12389, "Burak", "Yilmaz", "Guvenlik Gorevlisi", 8000)
+personel1 = Personel(12761, "Hatice", "Gungor", "Temizlik Görevlisi", 5000)
+personel2 = Personel(12389, "Burak", "Yılmaz", "Güvenlik Görevlisi", 8000)
