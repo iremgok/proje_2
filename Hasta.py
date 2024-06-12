@@ -64,14 +64,3 @@ class Hasta:
     # Str method ile verileri ekrana yazdırır
     def __str__(self):
         return f"Hasta: {self.get_isim()} {self.get_soyisim()}, Hasta no: {self.get_hasta_no()}, Dogum tarihi: {self.get_dogum_tarihi()}, Hastalik: {self.get_hastalik()}, Tedavi suresi: {self.get_tedavi_suresi()} ay"
-
-
-# Hasta nesneleri oluşturma
-hasta1 = Hasta("Mustafa", "Donmez", 2005, "grip", 12347)
-hasta2 = Hasta("Elif", "Tas", 1987, "kirik", 56412)
-hasta3 = Hasta("Arda", "Oztekin", 2002, "zature", 78913)
-
-# Tedavi süresi hesapla fonksiyonu çağrılır
-hasta1.set_tedavi_suresi(hasta1.tedavi_suresi_hesapla())
-hasta2.set_tedavi_suresi(hasta2.tedavi_suresi_hesapla())
-hasta3.set_tedavi_suresi(hasta3.tedavi_suresi_hesapla())
