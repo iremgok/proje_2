@@ -45,8 +45,3 @@ class Personel:
     # Str methodu ile ekrana yazdırır
     def __str__(self):
         return f"Personel: {self.get_isim()} {self.get_soyisim()}, Personel no: {self.get_personel_no()}, Departman: {self.get_departman()}, Maas: {self.get_maas()}"
-
-
-# Personel nesneleri oluşturma
-personel1 = Personel(12761, "Hatice", "Gungor", "Temizlik Görevlisi", 5000)
-personel2 = Personel(12389, "Burak", "Yılmaz", "Güvenlik Görevlisi", 8000)
