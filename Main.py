@@ -1,8 +1,37 @@
 import pandas as pd # type: ignore
-from Doktor import doktor1, doktor2, doktor3
-from Hemsire import hemsire1, hemsire2, hemsire3
-from Hasta import hasta1, hasta2, hasta3
-from Personel import personel1, personel2
+from Doktor import Doktor
+from Hemsire import Hemsire
+from Hasta import Hasta
+from Personel import Personel
+
+
+# Nesneleri oluşturma
+doktor1 = Doktor(30026, "irem", "Gok", "Ortopedi", 3, "Denizli Sehir Hastanesi", 25000)     # indeks hatası olmaması için personel_no verdim
+doktor2 = Doktor(30213, "ikra", "Saygun", "Genel Cerrahi", 5, "Medicana Ozel Hastane", 14000)
+doktor3 = Doktor(30854, "Ali", "Demir", "Kardiyoloji", 7, "izmir Sehir Hastanesi", 20000)
+hemsire1 = Hemsire(23569, "Zeynep", "Sahin", 13, "Yasli Bakim", "Gazi Ozel Hastane", 6000)      
+hemsire2 = Hemsire(23458, "Efe", "Baransel", 11, "Hastane Sekreteri", "Gazi Ozel Hastane", 7000)
+hemsire3 = Hemsire(23751, "Zehra", "Acikgoz", 9, "Cocuk Gelisimi", "Izmir Sehir Hastanesi", 9000)
+personel1 = Personel(12761, "Hatice", "Gungor", "Temizlik Görevlisi", 5000)
+personel2 = Personel(12389, "Burak", "Yılmaz", "Güvenlik Görevlisi", 8000)
+hasta1 = Hasta("Mustafa", "Donmez", 2005, "grip", 12347)
+hasta2 = Hasta("Elif", "Tas", 1987, "kirik", 56412)
+hasta3 = Hasta("Arda", "Oztekin", 2002, "zature", 78913)
+
+# Doktorlar için maaş arttır fonksiyonu çağrılır
+doktor1.set_maas(doktor1.maas_arttir())
+doktor2.set_maas(doktor2.maas_arttir())
+doktor3.set_maas(doktor3.maas_arttir())
+
+# Hemşirelerin maaşlarını arttırma donksiyonları çağrılır
+hemsire1.set_maas(hemsire1.maas_arttir())
+hemsire2.set_maas(hemsire2.maas_arttir())
+hemsire3.set_maas(hemsire3.maas_arttir())
+
+# Tedavi süresi hesapla fonksiyonu çağrılır
+hasta1.set_tedavi_suresi(hasta1.tedavi_suresi_hesapla())
+hasta2.set_tedavi_suresi(hasta2.tedavi_suresi_hesapla())
+hasta3.set_tedavi_suresi(hasta3.tedavi_suresi_hesapla())
 
 
 # try-except bloğu
@@ -30,7 +59,7 @@ try:
     # Hastaların isimlerini alfabetik sıraya göre sıralama
     print("\n")
     print("Hastalarin Alfabetik Siraya Gore Dataframe: ")
-    hastalar = personeller[personeller['Hasta_no'] != 0]
+    hastalar = personeller[personeller['Hasta_no'] != 0]     # personeller listesinden hasta_no sütununu çekerek yeni personeller datafremi oluşturur
     siralanmis_hastalar = hastalar.sort_values(by='Ad')
     print(siralanmis_hastalar)
     print("\n")   
@@ -58,12 +87,15 @@ try:
 
 
     # Toplam doktor sayısı
-    toplam_doktor = sum(1 for uzmanlik in personeller['Uzmanlik'] if uzmanlik != 0)     # uzmanlıkları 1'e çevirir ve 1'leri toplar
+    toplam_doktor = 0
+    for idx, row in personeller.iterrows():
+        if row['Uzmanlik'] != 0:
+            toplam_doktor += 1
     print("Toplam Doktor Sayisi: ", toplam_doktor)
     print("\n")
 
 
-    # Maaşı 7000'den fazla olan personeller
+    # Maaşı 7000'den fazla olan personeller, doktorlar ve hemşireler
     print("Maasi 7000'den Fazla Olan Personeller: ")
     for idx, row in personeller.iterrows():
         if int(row['Maas']) > 7000:     # row, her bir satırı temsil eder ve iterrows ile bu satırları döndürmayi sağlar
@@ -74,7 +106,7 @@ try:
     # 1990 yılından sonra doğan hastalar
     print("1990 Yilindan Sonra Dogan Hastalar: ")
     for idx, row in personeller.iterrows():
-        if row['Dogum_tarihi'] != 0 and int(row['Dogum_tarihi']) > 1990:
+        if int(row['Dogum_tarihi']) > 1990:
             print(row)
             print("\n")
 
@@ -102,3 +134,4 @@ try:
 
 except ValueError:
     print("Hata!")
+    
