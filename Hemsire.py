@@ -41,13 +41,3 @@ class Hemsire(Personel):
     def __str__(self):
         return f"Hemsire: {self.get_isim()} {self.get_soyisim()}, Calisma saati: {self.get_calisma_saati()}, Sertifika: {self.get_sertifika()}, Hastane: {self.get_hastane()}, Maas: {self.get_maas()}"
     
-
-# Hemşire nesneleri oluşturma
-hemsire1 = Hemsire(23569, "Zeynep", "Sahin", 13, "Yasli Bakim", "Gazi Ozel Hastane", 6000)
-hemsire2 = Hemsire(23458, "Efe", "Baransel", 11, "Hastane Sekreteri", "Gazi Ozel Hastane", 7000)
-hemsire3 = Hemsire(23751, "Zehra", "Acikgoz", 9, "Cocuk Gelisimi", "Izmir Sehir Hastanesi", 9000)
-
-# Hemşirelerin maaşlarını arttırma donksiyonları çağrılır
-hemsire1.set_maas(hemsire1.maas_arttir())
-hemsire2.set_maas(hemsire2.maas_arttir())
-hemsire3.set_maas(hemsire3.maas_arttir())
