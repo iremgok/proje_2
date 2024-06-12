@@ -39,14 +39,3 @@ class Doktor(Personel):
     # Str method ile verileri ekrana yazdırır
     def __str__(self):
         return f"Doktor: {self.get_isim()} {self.get_soyisim()}, Uzmanlik: {self.get_uzmanlik()}, Deneyim Yili: {self.get_deneyim_yili()}, Hastane: {self.get_hastane()}, Maas: {self.get_maas()}"
-
-
-# Doktor nesneleri oluşturma
-doktor1 = Doktor(30026, "irem", "Gok", "Ortopedi", 3, "Denizli Sehir Hastanesi", 25000)
-doktor2 = Doktor(30213, "ikra", "Saygun", "Genel Cerrahi", 5, "Medicana Ozel Hastane", 14000)
-doktor3 = Doktor(30854, "Ali", "Demir", "Kardiyoloji", 7, "izmir Sehir Hastanesi", 20000)
-
-# Doktorlar için maaş arttır fonksiyonu çağrılır
-doktor1.set_maas(doktor1.maas_arttir())
-doktor2.set_maas(doktor2.maas_arttir())
-doktor3.set_maas(doktor3.maas_arttir())
